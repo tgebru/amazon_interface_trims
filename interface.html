@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" rel="stylesheet" href="reset.css"   />
+<link type="text/css" rel="stylesheet" href="cars.css"/>
+<title>Cars</title>
+</head>
+
+<body>
+<script>
+
+
+
+window.onload = function() {
+	document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()'); 
+        
+}
+
+function hideImage(id){
+       document.getElementById(id).style.display='none';
+       document.getElementById(id).style.visibility='hidden';
+}
+
+function validateForm() {
+    var validate=0;
+    if((document.getElementById("yes-value").value=="clicked") ||(document.getElementById("no-value").value=="clicked") || (document.getElementById("enough-value").value=="clicked")) {
+    validate=1; 
+    }
+    if (validate)
+	return true;
+    else
+	return false;
+}
+
+function recordYes(){
+    document.getElementById("discription-row").style.visibility='hidden';
+    document.getElementById("yes").style.color='green';
+    document.getElementById("no").style.color='white';
+    document.getElementById("enough_info").style.color='white';
+    document.getElementById("yes-value").value="clicked";
+    document.getElementById("no-value").value="un-clicked";
+    document.getElementById("enough-value").value="un-clicked";
+    //document.getElementById("discription-form").style.display='none';
+    document.getElementById("img-wrong").style.visibility='hidden';
+    document.getElementById("img-wrong").style.visibility='none';
+}
+function recordNo(){
+    document.getElementById("discription-row").style.visibility='visible';
+    document.getElementById("discription-form").style.visibility='visible';
+    document.getElementById("discription-form").style.display='inline';
+    document.getElementById("discription-row").style.display='inline';
+    document.getElementById("img-wrong").style.visibility='hidden';
+    document.getElementById("yes").style.color='white';
+    document.getElementById("no").style.color='green';
+    document.getElementById("no-value").value="clicked";
+    document.getElementById("yes-value").value="un-clicked";
+    document.getElementById("enough-value").value="un-clicked";
+    document.getElementById("enough_info").style.color='white';
+}
+function recordInfo(){
+    document.getElementById("yes").style.color='white';
+    document.getElementById("no").style.color='white';
+    document.getElementById("enough_info").style.color='green';
+    document.getElementById("yes-value").value="clicked";
+    document.getElementById("no-value").value="un-clicked";
+    document.getElementById("enough-value").value="clicked";
+    document.getElementById("discription-row").style.visibility='hidden';
+    document.getElementById("discription-form").style.display='none';
+    document.getElementById("img-wrong").style.visibility='visible';
+    document.getElementById("img-wrong").style.visibility='inline';
+}
+function toggleInstruction(){
+   if(document.getElementById("show-instruction").value=="Hide Instructions"){
+      document.getElementById("instructions").style.display='none';
+      document.getElementById("show-instruction").value="Show Instructions";
+   }else{
+      document.getElementById("show-instruction").value="Hide Instructions";
+      document.getElementById("instructions").style.display='inline';
+      document.getElementById("example").style.display='inline';
+      document.getElementById("example1").style.display='inline';
+   }
+}
+function toggleExample(){
+      if(document.getElementById("show-next").value=="Show Next Example"){
+	      document.getElementById("show-next").value="Show Previous Example";
+	      document.getElementById("example2").style.display='inline';
+	      document.getElementById("example1").style.display='none';
+      }else{
+	      document.getElementById("show-next").value="Show Next Example";
+	      document.getElementById("example2").style.display='none';
+	      document.getElementById("example1").style.display='inline';
+      }
+}
+
+function toggleImage(id){
+     var cl1=document.getElementById(id.concat("_first_cars"))
+     var cl2=document.getElementById(id.concat("_sec_cars"))
+     var cl3=document.getElementById(id.concat("_third_cars"))
+     if (cl1.style.display=='inline' || cl1.style.display==""){
+	     cl1.style.display='none';
+	     cl2.style.display='inline';
+             cl3.style.display='none';
+     }else if (cl2.style.display=='inline'){ 
+	     cl2.style.display='none';
+	     cl3.style.display='inline';
+	     cl1.style.display='none';
+     }
+}
+
+function toggleImage_prev(id){
+     var cl1=document.getElementById(id.concat("_first_cars"))
+     var cl2=document.getElementById(id.concat("_sec_cars"))
+     var cl3=document.getElementById(id.concat("_third_cars"))
+
+     if (cl1.style.display=="" && cl2.style.display=="" && cl3.style.display==""){
+             cl1.style.display='inline'; 
+             cl2.style.display='none'; 
+             cl3.style.display='none'; 
+     }if (cl3.style.display=='inline' || cl3.style.display==""){
+	     cl3.style.display='none';
+	     cl2.style.display='inline';
+             cl1.style.discplay='none';
+     }else if (cl2.style.display=='inline'){ 
+	     cl2.style.display='none';
+	     cl1.style.display='inline';
+             cl3.style.display='none';
+     }if (cl1.style.display=="" && cl2.style.display=="" && cl3.style.display==""){
+             cl1.style.display='inline'; 
+             cl2.style.display='none'; 
+             cl3.style.display='none'; 
+     }
+}
+</script>
+<style type="text/css">
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address,
+variable, form, fieldset, blockquote {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+ol {
+  margin-left: 1.4em;
+  list-style: decimal;
+}
+ul {
+  margin-left: 1.4em;
+  list-style:square;
+}
+img {
+  border: 0;
+}
+#all
+{
+  width:1050px;
+  margin-left:20px;
+}
+td, tr, h1, h2, ul, li, html, body, form, fieldset, legend, ol, li
+{
+  margin = 0px;
+  padding = 0px;
+}
+h1
+{
+  font:sans-serif;
+  font-size:36px;
+  font-weight:bold;
+}
+
+/*
+.sec_cars,.third_cars
+{
+  display:none;
+}
+*/
+
+.first_cars
+{
+  display:inline;
+  height: 200px; 
+}
+
+#first-col
+{
+  float:left;
+  width:500px;
+  margin-right:20px;
+}
+#sec-col
+{
+  float:left;
+  width:400px;
+}
+
+form {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+}
+fieldset 
+{
+ margin-top:10px;
+ padding-left:5px;
+ padding-right:5px;
+ height:auto;
+}
+
+h2 
+{
+  background-color:gray;
+  text-align:left;
+  font:sans-serif;
+  font-size:20px;
+  color:white;
+  padding-top:2px;
+  padding-bottom:2px;
+  padding-left:5px;
+  padding-right:5px;
+  margin-top:5px;
+  margin-bottom:5px;
+  border:2px solid black
+}
+
+.td1
+{
+  width:500px;
+  padding-left:0px;
+}
+
+.price-span
+{
+  width:100px;
+  text-align:right;
+  padding-right:0px;
+}
+
+#colors
+{
+  float:left;
+  margin-right:49px;
+}
+#cars,#example1,#example2
+{
+  float:left;
+  width:800px;
+}
+
+#response,#unclear-image {
+  font-size:20px;
+  font-weight:bold;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  width:600px;
+  height:200px;
+  margin-top:10px;
+  margin-bottom:20px;
+  vertical-align:top;
+  border:5px solid #60b4e5;
+  color:black;
+}
+
+#discription-row,#img-wrong {
+  visibility:hidden;
+}
+
+.show_next,#enough_info,#yes, #yes-p,#no, #yes-label, #no-label,#show-instruction, #show-next,#submit,#submitButton {
+  margin-top:20px;
+  margin-bottom:10px;
+  margin-left:50px;
+  /*margin-right:10px;*/
+  color:white;
+  text-shadow: 1px 1px 0 #145982;
+  font-size:32px;
+  font-weight:bold;
+  text-align:center;
+  border:5px solid #60b4e5; 
+}
+
+#enough_info {
+  width:200px;
+  height:100px;
+  font-size:29px;
+  vertical-align:top;
+  text-wrap: normal;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
+#yes, #no, #yes-label, #no-label{
+float:left;
+width:80px;
+font-weight:bold;
+color:white;
+margin-right:10px;
+}
+
+#yes-label, #no-label{
+float:left;
+margin-right:10px;
+margin-left:10px;
+}
+
+#example,#example1, #example2,#instructions{
+  display:none;
+}
+
+#instruction-text
+{
+  color:red;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#discription-instruction {
+  width:800px;
+  margin-top:10px;
+  margin-bottom:10px;
+  #margin-left:10px;
+  text-align:center;
+  float:left;
+  font-weight:bold;
+  color:red;
+}
+
+#example1, #example2 {
+  margin-top:10px;
+  margin-bottom:10px;
+} 
+
+#submit, #submitButton {
+  color:red;
+  padding-left:2px;
+  padding-right:2px;
+  margin-left:20px;
+  width:168px;
+}
+
+#main-title h2, #instruction-text h2{
+  float:left;
+  width:800px;
+  border:none;
+  background-color:white;
+  text-align:left;
+  font:sans-serif;
+  font-size:20px;
+  color:red;
+  padding-top:2px;
+  padding-bottom:2px;
+  padding-left:5px;
+  padding-right:5px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.checkbox-label {
+   /*float:left*/
+   text-align:left;
+   font-sans-serif;
+   font-size:18px;
+   color:red;
+}
+
+#cars,#car1,#car2,#example1_car1,#example1_car2,#car1_first_cars{
+   position:relative;
+}
+
+#cars,#car1,#car2,#example1_car1, #example1_car2,#example2_car1,#example2_car2{
+   width:800px;
+   height:210px;
+   /*overflow: -moz-scrollbars-horizontal; */
+   overflow-x:scroll;
+   overflow-y:visible;
+}
+
+.thumb img { 
+	border:1px solid #000;
+	margin:3px;
+	float:left;
+}
+.thumb span { 
+        position:absolute;
+	visibility:hidden;
+}
+.thumb:hover, .thumb:hover span { 
+	visibility:visible;
+	top:0; left:250px; 
+	z-index:1;
+}
+
+</style>
+<div id="all">
+<div id="instruction-button">
+<table> 
+  <input name="show-instruction" id="show-instruction" type="button" value="Show Instructions" onclick="toggleInstruction();"/>
+</table>
+</div><!--instruction-button-->
+<div id="instructions">
+<div id="instruction-text">
+<h2>You will be shown two different types of cars with up to 9 example images per car (scroll left and right to see the rest of the examples). The first car will be on the top and the second one at the bottom. You can hover on the images to make them bigger.
+The task is to specify whether the two cars are visually indistinguishible or not. Some cars look very similar but only differ in very subtle cases. If the two cars are visually indistinguishible press YES. If the two cars are visually different press NO and describe the differences. Please look at the examples below. Note that color differences do not count--if two cars look the same except for a difference in color they are considered to be visually the same. <span>Differences in tires and foglihgts also don't count</span>. Below is a car image with labeled parts to aid you in identifying differences in parts </h2> 
+</div><!--instruction-text-->
+<div id="inst-car-img">
+ <img src="${car-img-parts}" id="inst-car-img-parts" alt="car" height="400" width="664"/>
+</div><!--inst-car-img-->
+<div id="example">
+
+<div id="example1">
+<h1>This is an example where the cars are visually indistinguishible so the answer would be YES</h1>
+<h2>Car 1</h2>
+<div id="example1_car1">
+<a class="thumb" href="#"><img src="${car-img-example1-1a}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-1a}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1b}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-1b}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1c}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-1c}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1d}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-1d}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1e}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-1e}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1f}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-1f}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1g}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-1g}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1h}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-1h}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-1i}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-1i}" alt="car3"></span></a>
+<!--<img src="${car-img-example1-1j}" id="car-img-example1-1j" alt="car" height="200" width="264"/>-->
+</div><!--example1_car1-->
+<h2>Car 2</h2>
+<div id="example1_car2">
+<a class="thumb" href="#"><img src="${car-img-example1-2a}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-2a}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2b}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-2b}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2c}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-2c}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2d}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-2d}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2e}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-2e}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2f}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-2f}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2g}" alt="car1" height="200" width="251"><span><img src="${car-img-example1-2g}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2h}" alt="car2" height="200" width="251"><span><img src="${car-img-example1-2h}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example1-2i}" alt="car3" height="200" width="251"><span><img src="${car-img-example1-2i}" alt="car3"></span></a>
+<!--<img src="${car-img-example1-2j}" id="car-img-example1-2j" alt="car" height="200" width="264"/>-->
+</div><!--example1_car2-->
+</div><!--example1-->
+
+<div id="example2">
+<h1>This is an example where the cars are visually slightly different so the answer would be NO. Note that sometimes differences can only be seen from certain angles. Although both cars are BMWs, the headlights and bumpers of the two cars are different. </h1>
+<h2>Car 1</h2>
+<div id="example2_car1">
+<a class="thumb" href="#"><img src="${car-img-example2-1a}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-1a}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1b}" alt="car2" height="200" width="251"><span><img src="${car-img-example2-1b}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1c}" alt="car3" height="200" width="251"><span><img src="${car-img-example2-1c}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1d}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-1d}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1e}" alt="car2" height="200" width="251"><span><img src="${car-img-example2-1e}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1f}" alt="car3" height="200" width="251"><span><img src="${car-img-example2-1f}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1g}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-1g}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1h}" alt="car2" height="200" width="251"><span><img src="${car-img-example2-1h}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-1i}" alt="car3" height="200" width="251"><span><img src="${car-img-example2-1i}" alt="car3"></span></a>
+<!--<img src="${car-img-example2-1j}" id="car-img-example2-1j" alt="car" height="200" width="264"/>-->
+</div><!--example2_car1-->
+
+<h2>Car 2</h2>
+<div id="example2_car2">
+<a class="thumb" href="#"><img src="${car-img-example2-2a}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2a}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2b}" alt="car2" height="200" width="251"><span><img src="${car-img-example2-2b}" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2c}" alt="car3" height="200" width="251"><span><img src="${car-img-example2-2c}" alt="car3"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2d}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2d}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2e}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2e}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2f}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2f}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2g}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2g}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2h}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2h}" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="${car-img-example2-2i}" alt="car1" height="200" width="251"><span><img src="${car-img-example2-2i}" alt="car1"></span></a>
+<!--<img src="${car-img-example2-2j}" id="car-img-example2-2j" alt="car" height="200" width="264"/>-->
+</div><!--example2_car2-->
+</div><!--example2-->
+<div id="show-next-button">
+<table> 
+  <input name="show-next" id="show-next" type="button" value="Show Next Example" onclick="toggleExample();"/>
+</table>
+</div><!--show-next-button-->
+</div><!--example-->
+</div><!--instructions-->
+
+<div id="main-title">
+<h1>Are these two cars visually the same?</h1>
+<h2>Note that <span style="background-color: #00FFFF">color differences do not count</span>. If two cars look the same except for a difference in color, they are considered to be visually the same. Differences in <span style="background-color: #00FFFF">tires/wheels and foglights also don't count</span>. See instructions for examples.</h2>
+</div><!--main-title-->
+<div id="cars">
+<h2>Car 1</h2>
+<div id="car1"> 
+<div id ="car1_first_cars" class="first_cars">
+
+<div id="car1-table-col1">
+<a class="thumb" href="#"><img src="${car-img1a}" onerror="hideImage('car1-table-col1');" alt="car1" height="200" width="251"><span><img src="${car-img1a}" onerror="hideImage('car1-table-col1');"></span></a>
+</div><!--car1-table-col1-->
+
+ <div id="car1-table-col2">
+<a class="thumb" href="#"><img src="${car-img1b}" onerror="hideImage('car1-table-col2');" alt="" height="200" width="251"><span><img src="${car-img1b}" ></span></a>
+</div>
+ <div id="car1-table-col3">
+<a class="thumb" href="#"><img src="${car-img1c}" onerror="hideImage('car1-table-col3');" alt="" height="200" width="251"><span><img src="${car-img1c}" ></span></a>
+</div>
+<!--
+<td><a class="thumb" href="#"><img src="car1.jpg" ><span><img src="car1.jpg" ></span></a></td>
+<td><a class="thumb" href="#"><img src="car2.jpg" ><span><img src="car2.jpg" ></span></a></td>
+<td><a class="thumb" href="#"><img src="car3.jpg" ><span><img src="car3.jpg" ></span></a></td>
+-->
+ <div id="car1-table-col4">
+ <a class="thumb" href="#"><img src="${car-img1d}" onerror="hideImage('car1-table-col4');" alt="" height="200" width="251"><span><img src="${car-img1d}"></span></a>
+</div>
+ <div id="car1-table-col5">
+ <a class="thumb" href="#"><img src="${car-img1e}" onerror="hideImage('car1-table-col5');" alt="" height="200" width="251"><span><img src="${car-img1e}"></span></a>
+</div>
+ <div id="car1-table-col6">
+ <a class="thumb" href="#"><img src="${car-img1f}" onerror="hideImage('car1-table-col6');" alt="" height="200" width="251"><span><img src="${car-img1f}" ></span></a>
+</div>
+ <div id="car1-table-col7">
+ <a class="thumb" href="#"><img src="${car-img1g}" onerror="hideImage('car1-table-col7');" alt="" height="200" width="251"><span><img src="${car-img1g}" ></span></a>
+</div>
+ <div id="car1-table-col8">
+ <a class="thumb" href="#"><img src="${car-img1h}" onerror="hideImage('car1-table-col8');" alt="" height="200" width="251"><span><img src="${car-img1h}" ></span></a>
+ </div>
+ <div id="car1-table-col9">
+ <a class="thumb" href="#"><img src="${car-img1i}" onerror="hideImage('car1-table-col9');" alt="" height="200" width="251"><span><img src="${car-img1i}" ></span></a>
+ </div>
+</div><!--car1_first_cars-->
+<!--<img src="${car-img1j}" id="car-img1j" alt="car" height="200" width="264"/>-->
+</div><!--car1-->
+<div id="car2-h">
+<h2>Car2</h2>
+</div>
+<div id="car2">
+<div id="car2_first_cars" class="first_cars">
+<div id="car2-table-col1">
+<a class="thumb" href="#"><img src="${car-img2a}" onerror="hideImage('car2-table-col1');" alt="" height="200" width="251"><span><img src="${car-img2a}" alt=""></span></a>
+</div>
+<div id="car2-table-col2">
+<a class="thumb" href="#"><img src="${car-img2b}" onerror="hideImage('car2-table-col2');" alt="" height="200" width="251"><span><img src="${car-img2b}" alt=""></span></a>
+</div>
+<div id="car2-table-col3">
+<a class="thumb" href="#"><img src="${car-img2c}" onerror="hideImage('car2-table-col3');" alt="" height="200" width="251"><span><img src="${car-img2c}" alt=""></span></a>
+</div>
+<!--
+<a class="thumb" href="#"><img src="car4.jpg" alt="car4" height="200" width="251"><span><img src="car4.jpg" alt="car1"></span></a>
+<a class="thumb" href="#"><img src="car5.jpg" alt="car5" height="200" width="251"><span><img src="car5.jpg" alt="car2"></span></a>
+<a class="thumb" href="#"><img src="car6.jpg" alt="car6" height="200" width="251"><span><img src="car6.jpg" alt="car3"></span></a>
+-->
+
+<div id="car2-table-col4">
+<a class="thumb" href="#"><img src="${car-img2d}" onerror="hideImage('car2-table-col4');" alt="" height="200" width="251"><span><img src="${car-img2d}" alt=""></span></a>
+</div>
+<div id="car2-table-col5">
+<a class="thumb" href="#"><img src="${car-img2e}" onerror="hideImage('car2-table-col5');" alt="" height="200" width="251"><span><img src="${car-img2e}" alt=""></span></a>
+</div>
+<div id="car2-table-col6">
+<a class="thumb" href="#"><img src="${car-img2f}" onerror="hideImage('car2-table-col6');" alt="" height="200" width="251"><span><img src="${car-img2f}" alt=""></span></a>
+</div>
+<!--
+<img src="${car-img2d}" id="car-img2d" alt="car2-4" height="200" width="264"/>
+<img src="${car-img2e}" id="car-img2e" alt="car2-5" height="200" width="264"/>
+<img src="${car-img2f}" id="car-img2f" alt="car2-6" height="200" width="264"/>
+-->
+
+<div id="car2-table-col7">
+<a class="thumb" href="#"><img src="${car-img2g}" onerror="hideImage('car2-table-col7');" alt="" height="200" width="251"><span><img src="${car-img2g}" alt=""></span></a>
+</div>
+<div id="car2-table-col8">
+<a class="thumb" href="#"><img src="${car-img2h}" onerror="hideImage('car2-table-col8');" alt="" height="200" width="251"><span><img src="${car-img2h}" alt=""></span></a>
+</div>
+<div id="car2-table-col9">
+<a class="thumb" href="#"><img src="${car-img2i}" onerror="hideImage('car2-table-col9');" alt="" height="200" width="251"><span><img src="${car-img2i}" alt=""></span></a>
+</div>
+<!--
+<img src="${car-img2g}" id="car-img2g" alt="car2-7" height="200" width="264"/>
+<img src="${car-img2h}" id="car-img2h" alt="car2-8" height="200" width="264"/>
+<img src="${car-img2i}" id="car-img2i" alt="car2-9" height="200" width="264"/>
+-->
+</div><!--third_cars-->
+<!--<img src="${car-img2j}" id="car-img2j" alt="car" height="200" width="264"/>-->
+</div><!--car2-->
+</div><!--cars-->
+<div id="answer">
+<table> 
+  <input name="yes-value" id="yes-value" type="hidden" value=""/>
+  <input name="yes-label" id="yes"   type="button" value="YES" onclick="recordYes();"/>
+  <input name="no-value"  id="no-value" type="hidden" value=""/>
+  <input name="no" id="no" type="button" value="NO" onclick="recordNo();"/>
+  <input name="synsetid1"  id="synsetid1" type="hidden" value="${synsetid1}"/>
+  <input name="synsetid2"  id="synsetid2" type="hidden" value="${synsetid2}"/>
+  <input name="enough_info" id="enough_info" type="button" value="Image Missing/Unclear" onclick="recordInfo();"/>
+  <input name="enough-value"  id="enough-value" type="hidden" value=""/>
+</table>
+</div><!--answer-->
+<div id="discription-row">
+<div id="discription-instruction">
+<h2>Please check the parts that are different. If None of the choices describe the differences, please describe their differences below. Example discriptions could be: the trims are different etc...</h2>
+</div><!--discription-instruction--> 
+<div id="discription-img">
+ <img src="${car-img-parts}" id="car-img-parts" alt="car" height="400" width="664"/>
+</div><!--discription-img-->
+<div id="discription-choice">
+<table>
+ <input name="Headlights" id="Headlights"  type="checkbox" value="Headlights"/>
+ <label for="Headlights" class="checkbox-label">Head Lights</label>
+ <input name="Tail-Lights"id="Tail-Lights" type="checkbox" value="Tail Lights"/>
+ <label for="Tail-Lights" class="checkbox-label">Tail Lights</label>
+ <input name="Bumpers"    id="Bumpers"     type="checkbox" value="Bumpers"/>
+ <label for="Bumpers" class="checkbox-label">Bumpers</label>
+ <input name="Grilles"    id="Grilles"     type="checkbox" value="Grilles"/>
+ <label for="Grilles" class="checkbox-label">Grilles</label>
+ <input name="Fenders"    id="Fenders"     type="checkbox" value="Fenders"/>
+ <label for="Fenders" class="checkbox-label">Fenders</label>
+ <input name="Hoods"      id="Hoods"       type="checkbox" value="Hoods"/>
+ <label for="Hoods" class="checkbox-label">Hoods</label>
+ <input name="Tailgates"  id="Tailgates"   type="checkbox" value="Tailgates"/>
+ <label for="Tailgates" class="checkbox-label">Tailgates</label>
+ <input name="Trunk-Lids" id="Trunk-Lids"  type="checkbox" value=Trunk-Lids"/>
+ <label for="Trunk-Lids" class="checkbox-label">Trunk Lids/Trunks</label>
+ <input name="Mirrors"    id="Mirrors" type="checkbox" value="Mirrors"/>
+ <label for="Mirrors" class="checkbox-label">Mirrors</label>
+ <input name="Doors"    id="Doors" type="checkbox" value="Doors"/>
+ <label for="Doors" class="checkbox-label">Doors</label>
+ <input name="Windows"    id="Windows" type="checkbox" value="Windows"/>
+ <label for="Windows" class="checkbox-label">Windows</label>
+ <input name="Exhaust"    id="Exhaust" type="checkbox" value="Exhaust Pipe"/>
+ <label for="Exhaust" class="checkbox-label">Exhaust Pipe</label>
+</table>
+</div><!--discription-choice-->
+<div id="discription-form">
+<table>
+  <input name="response" id="response" type="text" />
+</table>
+</div><!--discription-form-->
+</div><!--discription-row-->
+<div id="img-wrong">
+<table>
+  <input name="unclear-image" id="unclear-image" type="text" value="Please tell us why the image does not have enough info" onfocus="this.value=''" />
+</table>
+</div><!--img-wrong--> 
+</div><!--all-->
+</body>
+</html>
+
